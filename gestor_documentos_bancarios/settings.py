@@ -7,7 +7,12 @@ SECRET_KEY = 'django-insecure-e5aud$x)_dg@=…'
 DEBUG = True
 
 # 2. Hosts (ajusta antes de producción)
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'rihanz.pythonanywhere.com',
+]
+
 
 # 3. Apps
 INSTALLED_APPS = [
