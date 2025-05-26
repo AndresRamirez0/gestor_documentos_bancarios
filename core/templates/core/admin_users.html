@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% block title %}Administración de Usuarios – Gestor Docs{% endblock %}
+
+{% block content %}
+<div class="row">
+  <!-- Sidebar -->
+  <aside class="col-md-3 mb-4">
+    <div class="list-group">
+      <a href="{% url 'dashboard' %}"     class="list-group-item list-group-item-action">Dashboard</a>
+      <a href="{% url 'upload' %}"        class="list-group-item list-group-item-action">Cargar documento</a>
+      <a href="{% url 'search' %}"        class="list-group-item list-group-item-action">Buscar documentos</a>
+      <a href="{% url 'reports' %}"       class="list-group-item list-group-item-action">Reportes</a>
+      <a href="{% url 'admin_users' %}"   class="list-group-item list-group-item-action active">Administración</a>
+    </div>
+  </aside>
+
+  <!-- Contenido de Administración de Usuarios -->
+  <section class="col-md-9">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Gestión de Usuarios</h2>
+      <a href="#" class="btn btn-primary">Agregar nuevo usuario</a>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Ejemplo de fila estática -->
+          <tr>
+            <td>María Pérez</td>
+            <td>maria.perez@banco.com</td>
+            <td>Administrador</td>
+            <td><span class="badge bg-success">Activo</span></td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-outline-secondary me-1" title="Editar"><i class="bi bi-pencil"></i></button>
+              <button class="btn btn-sm btn-outline-danger" title="Eliminar"><i class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+          <!-- Repite según datos -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+{% endblock %}
