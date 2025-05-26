@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+{% block title %}Cargar Documento – Gestor Docs{% endblock %}
+
+{% block content %}
+<div class="row">
+  <!-- Sidebar incluido desde el base.html o repite tu list-group si no usas include -->
+  <aside class="col-md-3 mb-4">
+    <div class="list-group">
+      <a href="{% url 'dashboard' %}"     class="list-group-item list-group-item-action">Dashboard</a>
+      <a href="{% url 'upload' %}"        class="list-group-item list-group-item-action active">Cargar documento</a>
+      <a href="{% url 'search' %}"        class="list-group-item list-group-item-action">Buscar documentos</a>
+      <a href="{% url 'reports' %}"       class="list-group-item list-group-item-action">Reportes</a>
+      <a href="{% url 'admin_users' %}"   class="list-group-item list-group-item-action">Administración</a>
+    </div>
+  </aside>
+
+  <!-- Formulario de carga -->
+  <section class="col-md-9">
+    <h2 class="mb-4">Carga de Documentos</h2>
+    <div class="card">
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label for="doc_name" class="form-label">Nombre del documento</label>
+            <input type="text"
+                   class="form-control"
+                   id="doc_name"
+                   name="doc_name"
+                   placeholder="Ingresa un nombre descriptivo"
+                   required>
+          </div>
+
+          <div class="mb-3">
+            <label for="doc_type" class="form-label">Tipo de documento</label>
+            <select class="form-select"
+                    id="doc_type"
+                    name="doc_type"
+                    required>
+              <option value="" selected disabled>Selecciona un tipo</option>
+              <option value="pdf">PDF</option>
+              <option value="docx">DOCX</option>
+              <option value="imagen">Imagen</option>
+              <!-- Agrega según tus necesidades -->
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="doc_date" class="form-label">Fecha del documento</label>
+            <input type="date"
+                   class="form-control"
+                   id="doc_date"
+                   name="doc_date"
+                   required>
+          </div>
+
+          <div class="mb-3">
+            <label for="doc_file" class="form-label">Seleccionar archivo</label>
+            <input type="file"
+                   class="form-control"
+                   id="doc_file"
+                   name="doc_file"
+                   accept=".pdf,.docx,image/*"
+                   required>
+          </div>
+
+          <!-- Barra de progreso simulada -->
+          <div class="mb-3">
+            <label class="form-label">Progreso de carga</label>
+            <div class="progress">
+              <div class="progress-bar" 
+                   role="progressbar" 
+                   style="width: 0%;" 
+                   aria-valuenow="0" 
+                   aria-valuemin="0" 
+                   aria-valuemax="100" 
+                   id="uploadProgress">
+                0%
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Subir documento</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
