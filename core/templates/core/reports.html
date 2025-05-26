@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+{% block title %}Generación de Reportes – Gestor Docs{% endblock %}
+
+{% block content %}
+<div class="row">
+  <!-- Sidebar -->
+  <aside class="col-md-3 mb-4">
+    <div class="list-group">
+      <a href="{% url 'dashboard' %}"     class="list-group-item list-group-item-action">Dashboard</a>
+      <a href="{% url 'upload' %}"        class="list-group-item list-group-item-action">Cargar documento</a>
+      <a href="{% url 'search' %}"        class="list-group-item list-group-item-action">Buscar documentos</a>
+      <a href="{% url 'reports' %}"       class="list-group-item list-group-item-action active">Reportes</a>
+      <a href="{% url 'admin_users' %}"   class="list-group-item list-group-item-action">Administración</a>
+    </div>
+  </aside>
+
+  <!-- Contenido de Generación de Reportes -->
+  <section class="col-md-9">
+    <h2 class="mb-4">Generación de Reportes</h2>
+
+    <div class="card">
+      <div class="card-body">
+        <!-- Formulario de selección de rango de fechas -->
+        <form method="post" class="row g-3 mb-4">
+          {% csrf_token %}
+          <div class="col-md-6">
+            <label for="start_date" class="form-label">Fecha inicio</label>
+            <input type="date" id="start_date" name="start_date" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label for="end_date" class="form-label">Fecha fin</label>
+            <input type="date" id="end_date" name="end_date" class="form-control" required>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Generar reporte</button>
+          </div>
+        </form>
+
+        <!-- Vista previa simulada del PDF -->
+        <div id="report-preview" class="text-center mb-4">
+          <i class="bi bi-file-earmark-pdf display-1 text-muted"></i>
+          <p class="text-muted mt-2">Vista previa del reporte</p>
+        </div>
+
+        <!-- Botón de descarga -->
+        <div class="text-center">
+          <a href="#" class="btn btn-success">Descargar reporte (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
