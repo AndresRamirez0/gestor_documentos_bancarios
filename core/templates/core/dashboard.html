@@ -6,24 +6,25 @@
   <!-- Sidebar -->
   <aside class="col-md-3 mb-4">
     <div class="list-group">
-      <a href="{% url 'upload' %}" class="list-group-item list-group-item-action">
-        Cargar documento
-      </a>
-      <a href="{% url 'search' %}" class="list-group-item list-group-item-action">
-        Buscar documentos
-      </a>
-      <a href="{% url 'reports' %}" class="list-group-item list-group-item-action">
-        Reportes
-      </a>
-      <a href="{% url 'admin_users' %}" class="list-group-item list-group-item-action">
-        Administración
-      </a>
+      <a href="{% url 'dashboard' %}"   class="list-group-item list-group-item-action active">Dashboard</a>
+      <a href="{% url 'upload' %}"      class="list-group-item list-group-item-action">Cargar documento</a>
+      <a href="{% url 'search' %}"      class="list-group-item list-group-item-action">Buscar documentos</a>
+      <a href="{% url 'reports' %}"     class="list-group-item list-group-item-action">Reportes</a>
+      <a href="{% url 'admin_users' %}" class="list-group-item list-group-item-action">Administración</a>
     </div>
   </aside>
 
-  <!-- Área principal -->
+  <!-- Área de contenido principal -->
   <section class="col-md-9">
-    <h2 class="mb-4">Resumen</h2>
+    <!-- Encabezado con botón de video -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="mb-0">Resumen</h2>
+      <!-- Reemplaza YOUR_VIDEO_ID con el ID de tu vídeo en YouTube -->
+      <a href="https://youtu.be/YOUR_VIDEO_ID" target="_blank" class="btn btn-info">
+        <i class="bi bi-play-circle me-1"></i> Video
+      </a>
+    </div>
+
     <div class="row g-3">
       <div class="col-sm-6 col-lg-4">
         <div class="card text-white bg-primary h-100">
