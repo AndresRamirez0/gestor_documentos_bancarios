@@ -1,0 +1,25 @@
+/* 1. Asegura que html y body llenen toda la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* 2. Convierte el body en flex-column */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* 3. Haz que el main crezca para ocupar todo el espacio sobrante */
+  main {
+    flex: 1 0 auto;
+    /* opcional: padding vertical para no pegarlo al nav */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* 4. El footer no crece ni encoge */
+  footer {
+    flex-shrink: 0;
+  }
+  

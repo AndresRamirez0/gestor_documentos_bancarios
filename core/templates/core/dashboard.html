@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% block title %}Dashboard – Gestor Docs{% endblock %}
+
+{% block content %}
+<div class="row">
+  <!-- Sidebar -->
+  <aside class="col-md-3 mb-4">
+    <div class="list-group">
+      <a href="{% url 'upload' %}" class="list-group-item list-group-item-action">
+        Cargar documento
+      </a>
+      <a href="{% url 'search' %}" class="list-group-item list-group-item-action">
+        Buscar documentos
+      </a>
+      <a href="{% url 'reports' %}" class="list-group-item list-group-item-action">
+        Reportes
+      </a>
+      <a href="{% url 'admin_users' %}" class="list-group-item list-group-item-action">
+        Administración
+      </a>
+    </div>
+  </aside>
+
+  <!-- Área principal -->
+  <section class="col-md-9">
+    <h2 class="mb-4">Resumen</h2>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-primary h-100">
+          <div class="card-body">
+            <h5 class="card-title">Documentos cargados</h5>
+            <p class="card-text display-6">128</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-success h-100">
+          <div class="card-body">
+            <h5 class="card-title">Búsquedas realizadas</h5>
+            <p class="card-text display-6">54</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-info h-100">
+          <div class="card-body">
+            <h5 class="card-title">Reportes generados</h5>
+            <p class="card-text display-6">8</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
